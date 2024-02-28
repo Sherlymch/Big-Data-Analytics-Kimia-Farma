@@ -1,3 +1,4 @@
+-- Create new table --
 CREATE TABLE Kimia_farma.kf_analisa AS
 SELECT 
   ft.transaction_id, 
@@ -12,6 +13,7 @@ SELECT
   pd.product_name, 
   pd.price AS actual_price, 
   ft.discount_percentage,
+  -- create nett_sales --
     CASE
       WHEN pd.price <= 50000 THEN 0.1
       WHEN pd.price <= 100000 THEN 0.15
@@ -20,6 +22,7 @@ SELECT
       ELSE 0.30
     END AS presentase_gross_laba,
     (pd.price-(pd.price * ft.discount_percentage)) AS nett_sales,
+  -- create nett_profit --
     (pd.price - (pd.price * ft.discount_percentage)) + (pd.price - (pd.price * ft.discount_percentage)) * 
     CASE
       WHEN pd.price <= 50000 THEN 0.1
@@ -30,6 +33,7 @@ SELECT
     END AS nett_profit,
   ft.rating AS rating_transaksi, 
 FROM Kimia_farma.kf_final_transaction AS ft
+-- joining tables --
 INNER JOIN Kimia_farma.kf_kantor_cabang AS kc
   ON kc.branch_id = ft.branch_id
 INNER JOIN Kimia_farma.kf_product AS pd
