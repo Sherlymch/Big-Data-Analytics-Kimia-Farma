@@ -23,14 +23,7 @@ SELECT
     END AS presentase_gross_laba,
     (pd.price-(pd.price * ft.discount_percentage)) AS nett_sales,
   -- create nett_profit --
-    (pd.price - (pd.price * ft.discount_percentage)) + (pd.price - (pd.price * ft.discount_percentage)) * 
-    CASE
-      WHEN pd.price <= 50000 THEN 0.1
-      WHEN pd.price <= 100000 THEN 0.15
-      WHEN pd.price <= 300000 THEN 0.20
-      WHEN pd.price <= 500000 THEN 0.25
-      ELSE 0.30
-    END AS nett_profit,
+     nett_sales * presentase_gross_laba AS nett_profit,
   ft.rating AS rating_transaksi, 
 FROM Kimia_farma.kf_final_transaction AS ft
 -- joining tables --
