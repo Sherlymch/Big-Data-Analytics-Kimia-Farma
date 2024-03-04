@@ -1,5 +1,5 @@
 # Business Performance Dashboard
 
-Tools: /n
+Tools: \n
 Bigquery
 Looker Studio
