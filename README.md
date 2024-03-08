@@ -9,4 +9,4 @@ As a Big Data Analysis Intern at Kimia Farma, I have been tasked of creating new
 
 ## Task 1 : Importing Data
 The first task of this project is importing the given dataset into Google Bigquery Studio
-![Uploading Screen Shot 2024-03-07 at 13.38.29.png…]()
+
